@@ -4,16 +4,16 @@ const PageSeo = dynamic(() => import('../components/PageSeo'))
 export default function privacyPolicy() {
   return (
     <PageSeo
-      title="Privacy Policy"
-      titleTemplate="%s | About Insurances"
-      description="Your privacy is important to us. It is Site About Insurance policy. Respect your privacy regarding any information we may collect from you on the site"
+      title="Terms of Privacy Policy"
+      titleTemplate="%s | ConverText"
+      description="Your privacy is important to us. It is Site ConverText policy. Respect your privacy regarding any information we may collect from you on the site"
       path="/privacy-policy"
     >
       <section id='policy' className="bg-gray-200 mx-auto flex w-full max-w-full h-full">
         <div className="select-none container mx-auto pt-10 w-full max-w-5xl">
           <div className="w-full items-center pb-12 pl-8">
             <a href="/">
-              <button id="navAction1" className="inline-block w-max mx-auto text-md md:text-lg lg:text-xl lg:mx-0 hover:no-underline bg-[#142039] border-4 border-white text-white hover:bg-white hover:text-[#142039] hover:border-[#ff6341] rounded-full mt-4 lg:mt-0 py-4 px-8 focus:outline-none focus:shadow-outline transform transition hover:scale-100 duration-1000 ease-in-out shadow-xl" >
+              <button id="buttomBack2" className="inline-block w-max mx-auto text-md md:text-lg lg:text-xl lg:mx-0 hover:no-underline bg-colorBlue border-4 border-white text-white hover:bg-white hover:text-colorBlue hover:border-colorBlue rounded-full mt-4 lg:mt-0 py-4 px-8 focus:outline-none focus:shadow-outline transform transition hover:scale-100 duration-1000 ease-in-out shadow-xl" >
                 Back to Home Page
               </button>
             </a>
@@ -21,7 +21,7 @@ export default function privacyPolicy() {
 
           <div className="flex flex-nowrap items-center justify-left md:justify-center px-4 md:px-0 shadow-xl md:shadow-none">
             <div className="w-auto">
-              <h1 className="my-4 text-left lg:text-center text-4xl md:text-5xl lg:text-6xl font-bold text-dark-green">
+              <h1 className="my-4 text-left lg:text-center text-3xl md:text-4xl lg:text-5xl font-bold text-colorBlue">
                 Privacy Policy
               </h1>
             </div>
@@ -34,12 +34,12 @@ export default function privacyPolicy() {
           <div className="flex flex-wrap">
             <div className="w-auto px-8">
               <div className="mx-auto align-middle">
-                <div className="text-justify indent-8 text-lg md:text-xl lg:text-2xl py-4 text-gray-700">
+                <div className="text-justify indent-8 text-sm md:text-lg lg:text-xl pb-4 text-gray-600">
                   <p>
                     Your privacy is important to us. It is the policy of the
-                    About Insurances Site respect the privacy of the user in
+                    ConverText Site respect the privacy of the user in
                     relation to any information that we may collect from the
-                    About Insurances website, and other websites that we own
+                    ConverText website, and other websites that we own
                     and operate.
                   </p>
                   <p>
@@ -85,12 +85,12 @@ export default function privacyPolicy() {
               </div>
 
               <div className="mx-auto align-middle">
-                <p className="text-2xl md:text-3xl lg:text-4xl pt-10 text-dark-green mx-auto font-bold leading-none mb-3">
+                <p className="text-xl md:text-2xl lg:text-3xl pt-10 text-gray-700 mx-auto font-bold leading-none mb-3">
                   User Commitment
                 </p>
-                <div className="text-justify indent-8 text-lg md:text-xl lg:text-2xl py-4 text-gray-700">
+                <div className="text-justify indent-8 text-sm md:text-lg lg:text-xl pb-4 text-gray-600">
                   The user undertakes to make proper use of the contents and
-                  information that About Insurances offers on the website and
+                  information that ConverText offers on the website and
                   with an enunciative, but not limiting character:
                   <p>
                     A- Not to engage in activities that are illegal or
@@ -104,7 +104,7 @@ export default function privacyPolicy() {
                   </p>
                   <p>
                     C- Do not cause damage to the physical (hardware) and
-                    logical (software) systems of the About Insurance Site, of
+                    logical (software) systems of the ConverText Site, of
                     its suppliers or third parties, to introduce or
                     disseminate computer viruses or any other hardware systems
                     or software that are capable of causing the aforementioned
@@ -114,10 +114,10 @@ export default function privacyPolicy() {
               </div>
 
               <div className="mx-auto align-middle">
-                <p className="text-2xl md:text-3xl lg:text-4xl pt-10 text-dark-green mx-auto font-bold leading-none mb-3">
+                <p className="text-xl md:text-2xl lg:text-3xl pt-10 text-gray-700 mx-auto font-bold leading-none mb-3">
                   More information
                 </p>
-                <p className="text-justify indent-8 text-lg md:text-xl lg:text-2xl py-4 text-gray-700">
+                <p className="text-justify indent-8 text-sm md:text-lg lg:text-xl pb-4 text-gray-600">
                   We hope to have clarified well how our website usage policy
                   works, as mentioned earlier, if there is anything that
                   you're not sure if you need it or not, it's generally safer
@@ -127,11 +127,11 @@ export default function privacyPolicy() {
               </div>
 
               <div className="mx-auto align-middle">
-                <p className="text-lg md:text-2xl lg:text-3xl pt-10 text-dark-green mx-auto font-bold leading-none mb-3">
+                <p className="text-xl md:text-2xl lg:text-3xl pt-10 text-gray-700 mx-auto font-bold leading-none mb-3">
                   Modifications
                 </p>
-                <p className="text-justify indent-8 text-sm md:text-lg lg:text-xl pb-4 text-gray-700">
-                  About Insurances may revise this website usage policy at any
+                <p className="text-justify indent-8 text-sm md:text-lg lg:text-xl pb-4 text-gray-600">
+                  ConverText may revise this website usage policy at any
                   time, Without previous warning. By using this site, you
                   agree to be bound by the current version of these terms
                   presented above.
@@ -139,19 +139,19 @@ export default function privacyPolicy() {
               </div>
 
               <div className="mx-auto align-middle">
-                <p className="text-lg md:text-2xl lg:text-3xl pt-10 text-dark-green mx-auto font-bold leading-none mb-3">
+                <p className="text-xl md:text-2xl lg:text-3xl pt-10 text-gray-700 mx-auto font-bold leading-none mb-3">
                   Applicable law
                 </p>
-                <p className="text-justify indent-8 text-sm md:text-lg lg:text-xl pb-4 text-gray-700">
+                <p className="text-justify indent-8 text-sm md:text-lg lg:text-xl pb-4 text-gray-600">
                   This site use policy is governed by and interpreted in
-                  accordance with the laws followed by the About Insurance
+                  accordance with the laws followed by the ConverText
                   Site and you irrevocably submit to the exclusive
                   jurisdiction of the courts in that state or locality.
                 </p>
               </div>
 
               <div className="mx-auto align-middle">
-                <p className="text-sm md:text-md lg:text-lg pt-10 text-dark-green mx-auto font-bold leading-none mb-3">
+                <p className="text-sm md:text-md lg:text-lg pt-10 text-gray-700 mx-auto font-bold leading-none mb-3">
                   This policy is effective from March 14, 2023 01:42 AM
                 </p>
               </div>
@@ -160,7 +160,7 @@ export default function privacyPolicy() {
 
           <div className="w-full items-center pt-10 pl-8 pb-20">
             <a href="/">
-              <button id="navAction1" className="inline-block w-max mx-auto text-md md:text-lg lg:text-xl lg:mx-0 hover:no-underline bg-[#142039] border-4 border-white text-white hover:bg-white hover:text-[#142039] hover:border-[#ff6341] rounded-full mt-4 lg:mt-0 py-4 px-8 focus:outline-none focus:shadow-outline transform transition hover:scale-100 duration-1000 ease-in-out shadow-xl" >
+              <button id="buttomBack2" className="inline-block w-max mx-auto text-md md:text-lg lg:text-xl lg:mx-0 hover:no-underline bg-colorBlue border-4 border-white text-white hover:bg-white hover:text-colorBlue hover:border-colorBlue rounded-full mt-4 lg:mt-0 py-4 px-8 focus:outline-none focus:shadow-outline transform transition hover:scale-100 duration-1000 ease-in-out shadow-xl" >
                 Back to Home Page
               </button>
             </a>

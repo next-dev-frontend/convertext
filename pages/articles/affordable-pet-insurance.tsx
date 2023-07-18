@@ -123,10 +123,8 @@ export default function AffordablePetInsurance() {
               </div>
             </div>
           </div>
-
-
-
         </section>
+
       </main>
     </PageSeo >
   )

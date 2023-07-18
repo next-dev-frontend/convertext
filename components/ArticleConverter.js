@@ -9,13 +9,21 @@ const ArticleConverter = () => {
   const [cleared, setCleared] = useState(false);
   const [useTailwindCSS, setUseTailwindCSS] = useState(true);
   const [tailwindCSSOption, setTailwindCSSOption] = useState('className');
-  const [cssSyntaxOption, setCssSyntaxOption] = useState('padrão');
+  const [cssSyntaxOption, setCssSyntaxOption] = useState('standard');
   const [h2Style, setH2Style] = useState('');
   const [h3Style, setH3Style] = useState('');
   const [pStyle, setPStyle] = useState('');
   const [h2Length1, setH2Length1] = useState(40);
   const [h2Length2, setH2Length2] = useState(70);
   const [h3Length, setH3Length] = useState(39);
+  const [encodeCharacters, setEncodeCharacters] = useState(true);
+
+  const encodeSpecialCharacters = (text) => {
+    return text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  };
 
   const convertToHtml = () => {
     const lines = articleText.split('\n');
@@ -35,28 +43,28 @@ const ArticleConverter = () => {
       if (useTailwindCSS) {
         if (shouldAddH2) {
           if (h2Style !== '') {
-            paragraphElement += `<h2 ${tailwindCSSOption}="${h2Style}">${formattedLine}</h2>`;
+            paragraphElement += `<h2 ${tailwindCSSOption}="${h2Style}">${encodeSpecialCharacters(formattedLine)}</h2>`;
           } else {
-            paragraphElement += `<h2>${formattedLine}</h2>`;
+            paragraphElement += `<h2>${encodeSpecialCharacters(formattedLine)}</h2>`;
           }
         } else if (shouldAddH3) {
           if (h3Style !== '') {
-            paragraphElement += `<h3 ${tailwindCSSOption}="${h3Style}">${formattedLine}</h3>`;
+            paragraphElement += `<h3 ${tailwindCSSOption}="${h3Style}">${encodeSpecialCharacters(formattedLine)}</h3>`;
           } else {
-            paragraphElement += `<h3>${formattedLine}</h3>`;
+            paragraphElement += `<h3>${encodeSpecialCharacters(formattedLine)}</h3>`;
           }
         } else {
           if (pStyle !== '') {
-            paragraphElement += `<p ${tailwindCSSOption}="${pStyle}">${formattedLine}</p>`;
+            paragraphElement += `<p ${tailwindCSSOption}="${pStyle}">${encodeSpecialCharacters(formattedLine)}</p>`;
           } else {
-            paragraphElement += `<p>${formattedLine}</p>`;
+            paragraphElement += `<p>${encodeSpecialCharacters(formattedLine)}</p>`;
           }
         }
       } else {
         if (shouldAddH2) {
           let cssStyle = '';
 
-          if (cssSyntaxOption === 'padrão') {
+          if (cssSyntaxOption === 'standard') {
             if (h2Style !== '') {
               cssStyle = ` style="${h2Style}"`;
             } else {
@@ -70,11 +78,11 @@ const ArticleConverter = () => {
             }
           }
 
-          paragraphElement += `<h2${cssStyle}>${formattedLine}</h2>`;
+          paragraphElement += `<h2${cssStyle}>${encodeSpecialCharacters(formattedLine)}</h2>`;
         } else if (shouldAddH3) {
           let cssStyle = '';
 
-          if (cssSyntaxOption === 'padrão') {
+          if (cssSyntaxOption === 'standard') {
             if (h3Style !== '') {
               cssStyle = ` style="${h3Style}"`;
             } else {
@@ -88,11 +96,11 @@ const ArticleConverter = () => {
             }
           }
 
-          paragraphElement += `<h3${cssStyle}>${formattedLine}</h3>`;
+          paragraphElement += `<h3${cssStyle}>${encodeSpecialCharacters(formattedLine)}</h3>`;
         } else {
           let cssStyle = '';
 
-          if (cssSyntaxOption === 'padrão') {
+          if (cssSyntaxOption === 'standard') {
             if (pStyle !== '') {
               cssStyle = ` style="${pStyle}"`;
             } else {
@@ -106,7 +114,7 @@ const ArticleConverter = () => {
             }
           }
 
-          paragraphElement += `<p${cssStyle}>${formattedLine}</p>`;
+          paragraphElement += `<p${cssStyle}>${encodeSpecialCharacters(formattedLine)}</p>`;
         }
       }
 
@@ -139,201 +147,242 @@ const ArticleConverter = () => {
   const isHtmlGenerated = htmlArticle !== '';
 
   return (
-    <div className="flex flex-col w-screen space-y-4">
+    <div className="flex flex-col mx-auto w-full max-w-5xl p-8 space-y-4">
+
       <textarea
-        className="p-2 border border-gray-300 rounded"
-        placeholder="Digite o texto do artigo"
+        className="p-2 pb-4 border border-colorBlue rounded"
+        id='textArea'
+        placeholder="Digite ou cole o texto aqui"
         value={articleText}
+        rows={5}
         onChange={(e) => setArticleText(e.target.value)}
       />
 
-      <label htmlFor="brChoice" className="flex items-center">
-        <input
-          type="checkbox"
-          id="brChoice"
-          checked={useBrTag}
-          onChange={() => setUseBrTag(!useBrTag)}
-          className="mr-2"
-        />
-        Utilizar a tag &lt;br&gt; ?
-      </label>
+      <div className="space-y-4">
+        <details className="group border rounded border-gray-300 bg-gray-50 px-2 py-2">
+          <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-4">
+            <p className="text-lg font-medium text-gray-900">
+              Configurações
+            </p>
+            <span className="shrink-0 rounded-full bg-colorBlue p-1.5 text-gray-900 sm:p-3">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-45" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />
+              </svg>
+            </span>
+          </summary>
 
-      {useBrTag && (
-        <div className="flex items-center">
-          <input
-            type="radio"
-            id="brChoiceSelfClosing"
-            value="<br />"
-            checked={brTagOption === '<br />'}
-            onChange={(e) => setBrTagOption(e.target.value)}
-            className="mr-2"
-          />
-          <label htmlFor="brChoiceSelfClosing" className="mr-4">Utilizar a tag &lt;br /&gt;</label>
+          <label htmlFor="brChoice" className="flex items-center border rounded border-gray-300 p-4 bg-gray-200">
+            <input
+              type="checkbox"
+              id="brChoice"
+              checked={useBrTag}
+              onChange={() => setUseBrTag(!useBrTag)}
+              className="mr-2"
+            />
+            Adicionar quebras de linha &lt;br&gt;
+          </label>
 
-          <input
-            type="radio"
-            id="brChoice"
-            value="<br>"
-            checked={brTagOption === '<br>'}
-            onChange={(e) => setBrTagOption(e.target.value)}
-            className="mr-2"
-          />
-          <label htmlFor="brChoice">Utilizar a tag &lt;br&gt;</label>
-        </div>
-      )}
+          {useBrTag && (
+            <div className="flex items-center p-2 py-4">
+              <input
+                type="radio"
+                id="brChoiceSelfClosing"
+                value="<br />"
+                checked={brTagOption === '<br />'}
+                onChange={(e) => setBrTagOption(e.target.value)}
+                className="mr-2"
+              />
+              <label htmlFor="brChoiceSelfClosing" className="mr-4">Usar &lt;br /&gt;</label>
 
-      <div className="flex items-center">
-        <input
-          type="radio"
-          id="tailwindCSSChoice"
-          value="tailwind"
-          checked={useTailwindCSS}
-          onChange={() => {
-            setUseTailwindCSS(true);
-            clearHtml();
-          }}
-          className="mr-2"
-        />
-        <label htmlFor="tailwindCSSChoice" className="mr-4">Utilizar Tailwind CSS</label>
-        <input
-          type="radio"
-          id="customCSSChoice"
-          value="custom"
-          checked={!useTailwindCSS}
-          onChange={() => {
-            setUseTailwindCSS(false);
-            clearHtml();
-          }}
-          className="mr-2"
-        />
-        <label htmlFor="customCSSChoice">Utilizar CSS personalizado</label>
-      </div>
+              <input
+                type="radio"
+                id="brChoice2"
+                value="<br>"
+                checked={brTagOption === '<br>'}
+                onChange={(e) => setBrTagOption(e.target.value)}
+                className="mr-2"
+              />
+              <label htmlFor="brChoice2">Usar &lt;br&gt;</label>
+            </div>
+          )}
 
-      {useTailwindCSS ? (
-        <div>
-          <label htmlFor="h2Style">Estilo do h2:</label>
-          <input
-            type="text"
-            id="h2Style"
-            value={h2Style}
-            placeholder="font-bold text-gray-700"
-            onChange={(e) => setH2Style(e.target.value)}
-            className="p-1 border border-gray-300 rounded"
-          />
-
-          <label htmlFor="h3Style">Estilo do h3:</label>
-          <input
-            type="text"
-            id="h3Style"
-            value={h3Style}
-            placeholder="font-bold text-gray-700"
-            onChange={(e) => setH3Style(e.target.value)}
-            className="p-1 border border-gray-300 rounded"
-          />
-
-          <label htmlFor="pStyle">Estilo do parágrafo:</label>
-          <input
-            type="text"
-            id="pStyle"
-            value={pStyle}
-            placeholder="text-gray-700"
-            onChange={(e) => setPStyle(e.target.value)}
-            className="p-1 border border-gray-300 rounded"
-          />
-
-          <div>
-            <label htmlFor="tailwindCSSOption">Opção de Tailwind CSS:</label>
-            <select
-              id="tailwindCSSOption"
-              value={tailwindCSSOption}
-              onChange={(e) => setTailwindCSSOption(e.target.value)}
-              className="ml-2"
-            >
-              <option value="class">class</option>
-              <option value="className">className</option>
-            </select>
+          <div className="flex items-center border rounded border-gray-300 p-4 bg-gray-200">
+            <input
+              type="radio"
+              id="tailwindCSSChoice"
+              value="tailwind"
+              checked={useTailwindCSS}
+              onChange={() => {
+                setUseTailwindCSS(true);
+              }}
+              className="mr-2"
+            />
+            <label htmlFor="tailwindCSSChoice" className="mr-4">Usar Tailwind CSS</label>
+            <input
+              type="radio"
+              id="customCSSChoice"
+              value="custom"
+              checked={!useTailwindCSS}
+              onChange={() => {
+                setUseTailwindCSS(false);
+              }}
+              className="mr-2"
+            />
+            <label htmlFor="customCSSChoice">Usar CSS personalizado</label>
           </div>
-        </div>
-      ) : (
-        <div>
-          <label htmlFor="h2Style">Estilo do h2:</label>
-          <input
-            type="text"
-            id="h2Style"
-            value={h2Style}
-            placeholder="color:blue, background-color:powderblue"
-            onChange={(e) => setH2Style(e.target.value)}
-            className="p-1 border border-gray-300 rounded"
-          />
 
-          <label htmlFor="h3Style">Estilo do h3:</label>
-          <input
-            type="text"
-            id="h3Style"
-            value={h3Style}
-            placeholder="color:blue, background-color:powderblue"
-            onChange={(e) => setH3Style(e.target.value)}
-            className="p-1 border border-gray-300 rounded"
-          />
+          {useTailwindCSS ? (
+            <div>
+              <div className="flex items-center p-2 py-4">
+                <label htmlFor="tailwindCSSOption">Opções de sintaxe do Tailwind:</label>
+                <select
+                  id="tailwindCSSOption"
+                  value={tailwindCSSOption}
+                  onChange={(e) => setTailwindCSSOption(e.target.value)}
+                  className="ml-2 border rounded p-2"
+                >
+                  <option value="class">class</option>
+                  <option value="className">className</option>
+                </select>
+              </div>
 
-          <label htmlFor="pStyle">Estilo do parágrafo:</label>
-          <input
-            type="text"
-            id="pStyle"
-            value={pStyle}
-            placeholder="color:blue, background-color:powderblue"
-            onChange={(e) => setPStyle(e.target.value)}
-            className="p-1 border border-gray-300 rounded"
-          />
+              <div className="flex items-center p-2 space-x-2">
+                <label htmlFor="h2Style">&lt;h2&gt;</label>
+                <input
+                  type="text"
+                  id="h2Style"
+                  value={h2Style}
+                  placeholder="font-bold text-gray-700"
+                  onChange={(e) => setH2Style(e.target.value)}
+                  className="w-full p-1 border border-gray-300 rounded"
+                />
+              </div>
+              <div className="flex items-center p-2 space-x-2">
+                <label htmlFor="h3Style">&lt;h3&gt;</label>
+                <input
+                  type="text"
+                  id="h3Style"
+                  value={h3Style}
+                  placeholder="font-bold text-gray-700"
+                  onChange={(e) => setH3Style(e.target.value)}
+                  className="w-full p-1 border border-gray-300 rounded"
+                />
+              </div>
+              <div className="flex items-center p-2 pb-8 space-x-2">
+                <label htmlFor="pStyle">&lt;p&gt;</label>
+                <input
+                  type="text"
+                  id="pStyle"
+                  value={pStyle}
+                  placeholder="text-gray-700"
+                  onChange={(e) => setPStyle(e.target.value)}
+                  className="w-full p-1 border border-gray-300 rounded"
+                />
+              </div>
+            </div>
+          ) : (
+            <div>
+              <div className="flex items-center p-2 py-4">
+                <label htmlFor="cssSyntaxOption">Opções de sintaxe do CSS:</label>
+                <select
+                  id="cssSyntaxOption"
+                  value={cssSyntaxOption}
+                  onChange={(e) => setCssSyntaxOption(e.target.value)}
+                  className="ml-2 border rounded p-2"
+                >
+                  <option value="standard">Padrão</option>
+                  <option value="nextjs">Next.js</option>
+                </select>
+              </div>
 
-          <div>
-            <label htmlFor="cssSyntaxOption">Opção de sintaxe CSS:</label>
-            <select
-              id="cssSyntaxOption"
-              value={cssSyntaxOption}
-              onChange={(e) => setCssSyntaxOption(e.target.value)}
-              className="ml-2"
-            >
-              <option value="padrão">Padrão</option>
-              <option value="nextjs">Next.js</option>
-            </select>
+              <div className="flex items-center p-2 space-x-2">
+                <label htmlFor="h2Style">&lt;h2&gt;</label>
+                <input
+                  type="text"
+                  id="h2Style"
+                  value={h2Style}
+                  placeholder="color:blue, background-color:powderblue"
+                  onChange={(e) => setH2Style(e.target.value)}
+                  className="w-full p-1 border border-gray-300 rounded"
+                />
+              </div>
+
+              <div className="flex items-center p-2 space-x-2">
+                <label htmlFor="h3Style">&lt;h3&gt;</label>
+                <input
+                  type="text"
+                  id="h3Style"
+                  value={h3Style}
+                  placeholder="color:blue, background-color:powderblue"
+                  onChange={(e) => setH3Style(e.target.value)}
+                  className="w-full p-1 border border-gray-300 rounded"
+                />
+              </div>
+
+              <div className="flex items-center p-2 pb-8 space-x-2">
+                <label htmlFor="pStyle">&lt;p&gt;</label>
+                <input
+                  type="text"
+                  id="pStyle"
+                  value={pStyle}
+                  placeholder="color:blue, background-color:powderblue"
+                  onChange={(e) => setPStyle(e.target.value)}
+                  className="w-full p-1 border border-gray-300 rounded"
+                />
+              </div>
+            </div>
+          )}
+
+          <div className="flex flex-wrap items-center border rounded border-gray-300 p-2 bg-gray-200">
+            <div className="items-center p-2 space-x-2">
+              <label htmlFor="h2Length1">Tamanho mínimo para &lt;h2&gt;:</label>
+              <input
+                type="number"
+                id="h2Length1"
+                value={h2Length1}
+                onChange={(e) => setH2Length1(Number(e.target.value))}
+                className="p-1 w-16 border border-gray-300 rounded"
+              />
+            </div>
+
+            <div className="items-center p-2 space-x-2">
+              <label htmlFor="h2Length2">Tamanho máximo para &lt;h2&gt;:</label>
+              <input
+                type="number"
+                id="h2Length2"
+                value={h2Length2}
+                onChange={(e) => setH2Length2(Number(e.target.value))}
+                className="p-1 w-16 border border-gray-300 rounded"
+              />
+            </div>
           </div>
-        </div>
-      )}
 
-      <div>
-        <label htmlFor="h2Length1">Comprimento mínimo para h2:</label>
-        <input
-          type="number"
-          id="h2Length1"
-          value={h2Length1}
-          onChange={(e) => setH2Length1(Number(e.target.value))}
-          className="p-1 border border-gray-300 rounded"
-        />
+          <div className="flex items-center border border-gray-300 rounded p-4 bg-gray-200 space-x-2">
+            <label htmlFor="h3Length">Tamanho máximo para &lt;h3&gt;:</label>
+            <input
+              type="number"
+              id="h3Length"
+              value={h3Length}
+              onChange={(e) => setH3Length(Number(e.target.value))}
+              className="p-1 w-16 border border-gray-300 rounded"
+            />
+          </div>
 
-        <label htmlFor="h2Length2">Comprimento máximo para h2:</label>
-        <input
-          type="number"
-          id="h2Length2"
-          value={h2Length2}
-          onChange={(e) => setH2Length2(Number(e.target.value))}
-          className="p-1 border border-gray-300 rounded"
-        />
-      </div>
-
-      <div>
-        <label htmlFor="h3Length">Comprimento máximo para h3:</label>
-        <input
-          type="number"
-          id="h3Length"
-          value={h3Length}
-          onChange={(e) => setH3Length(Number(e.target.value))}
-          className="p-1 border border-gray-300 rounded"
-        />
+          <div className="flex items-center p-4">
+            <label htmlFor="encodeCharacters">Codificar caracteres especiais em HTML</label>
+            <input
+              type="checkbox"
+              id="encodeCharacters"
+              checked={encodeCharacters}
+              onChange={() => setEncodeCharacters(!encodeCharacters)}
+              className="ml-2"
+            />
+          </div>
+        </details>
       </div>
 
       <button
-        className="px-4 py-2 text-white rounded bg-blue-500 hover:bg-blue-700"
+        className="px-4 py-4 text-md md:text-xl text-white rounded bg-blue-500 hover:bg-blue-700"
         onClick={convertToHtml}
       >
         Converter para HTML
@@ -342,14 +391,14 @@ const ArticleConverter = () => {
       {isHtmlGenerated && (
         <>
           <button
-            className="px-4 py-2 text-white rounded bg-green-500 hover:bg-green-700"
+            className="px-4 py-4 text-md md:text-xl text-white rounded bg-green-500 hover:bg-green-700"
             onClick={copyHtmlToClipboard}
           >
             {copied ? 'HTML copiado' : 'Copiar HTML'}
           </button>
 
           <button
-            className="px-4 py-2 text-white rounded bg-red-500 hover:bg-red-700"
+            className="px-4 py-2 text-md md:text-xl text-white rounded bg-red-500 hover:bg-red-700"
             onClick={clearHtml}
           >
             Limpar
@@ -357,10 +406,15 @@ const ArticleConverter = () => {
         </>
       )}
 
-      {cleared}
-
       {isHtmlGenerated && (
-        <pre className="p-2 border border-gray-300 rounded">{htmlArticle}</pre>
+        <div className="max-w-full overflow-x-auto">
+          <pre
+            className="p-2 border border-gray-300 rounded"
+            style={{ whiteSpace: 'pre-wrap', overflowX: 'auto' }}
+          >
+            {htmlArticle}
+          </pre>
+        </div>
       )}
     </div>
   );

@@ -1,14 +1,16 @@
-import '../styles/tailwind.css'
+//import '../styles/tailwind.css'
+import "../styles/globals.css";
+import "tailwindcss/tailwind.css";
 import React, { useEffect } from 'react';
 import { AppProps } from 'next/app'
 import Head from 'next/head';
 import dynamic from 'next/dynamic'
-const NavBar = dynamic(() => import('../components/Navbar'))
-const SideBar = dynamic(() => import('../components/SideBar'), { loading: () => <p>Loading...</p>, })
+const Advantages = dynamic(() => import('../components/Advantages'), { loading: () => <p>Loading...</p>, })
+const Instructions = dynamic(() => import('../components/Instructions'), { loading: () => <p>Loading...</p>, })
+const ArticleConverter = dynamic(() => import('../components/ArticleConverter'), { loading: () => <p>Loading...</p>, })
 const PublicationDate = dynamic(() => import('../components/PublicationDate'))
 const BgParallax = dynamic(() => import('../components/BgParallax'), { loading: () => <p>Loading...</p>, })
-const PostCards = dynamic(() => import('../components/PostCards'), { loading: () => <p>Loading...</p>, })
-const BreadCrumbs = dynamic(() => import('../components/BreadCrumbs'))
+const SocialShare = dynamic(() => import('../components/SocialShare'))
 const Footer = dynamic(() => import('../components/Footer'), { loading: () => <p>Loading...</p>, })
 const Analytics = dynamic(() => import('../components/Analytics'))
 
@@ -37,13 +39,14 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <link rel="apple-touch-icon" type="image/png" href='/favicon.ico' />
         <link rel="icon" href='/logos/logo-144x144.png' />
       </Head>
-      <NavBar />
       <Component {...pageProps} />
-      <PublicationDate />
-      <PostCards />
+      <ArticleConverter />
+      <SocialShare />
+      <Instructions />
       <BgParallax />
-      <SideBar />
-      <BreadCrumbs />
+      <Advantages />
+      <SocialShare />
+      <PublicationDate />
       <Footer />
       <Analytics />
     </>

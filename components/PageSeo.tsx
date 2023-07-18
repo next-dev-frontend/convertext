@@ -1,8 +1,8 @@
 import { ArticleJsonLd, NextSeo } from 'next-seo'
 
 function PageSeo({ title, titleTemplate, description, path, children }) {
-  const url = `https://aboutinsurances.vercel.app${path}`
-  const imageUrl = 'https:/aboutinsurances.vercel.app/backgrounds/bg-insurances.jpeg';
+  const url = `https://convertext.vercel.app${path}`
+  const imageUrl = 'https:/convertext.vercel.app/backgrounds/bg1-convertext.webp';
 
   return (
     <div>
@@ -19,7 +19,7 @@ function PageSeo({ title, titleTemplate, description, path, children }) {
           },
           {
             name: 'application-name',
-            content: 'About Insurances Web Site'
+            content: 'Convert Text to Html'
           },
           {
             httpEquiv: 'x-ua-compatible',
@@ -30,21 +30,21 @@ function PageSeo({ title, titleTemplate, description, path, children }) {
         openGraph={{
           type: 'article',
           article: {
-            publishedTime: '2022-06-21T23:04:13Z',
-            modifiedTime: '2022-01-21T18:04:43Z',
-            tags: ['insurance', 'tips', 'coverage'],
+            publishedTime: '2022-06-23T23:04:13Z',
+            modifiedTime: '2022-01-23T18:04:43Z',
+            tags: ['convert text to html', 'convert text', 'convert to html', 'text to html', 'txt to html'],
           },
           url: url,
-          site_name: 'Website About Insurances',
+          site_name: 'Website ConverText',
           title: title,
           description: description,
           images: [
             {
               url: imageUrl,
-              alt: 'template about insurances',
+              alt: 'template ConverText',
               width: 380,
               height: 380,
-              type: 'image/jpeg',
+              type: 'image/webp',
             },
           ],
         }}
@@ -54,17 +54,16 @@ function PageSeo({ title, titleTemplate, description, path, children }) {
         url={url}
         title={title}
         images={[
-          'https:/aboutinsurances.vercel.app/backgrounds/bg-insurances.jpeg',
-          'https:/aboutinsurances.vercel.app/cards/post-card1.webp',
-          'https:/aboutinsurances.vercel.app/cards/post-card2.webp',
-          'https:/aboutinsurances.vercel.app/cards/post-card3.webp',
-          'https:/aboutinsurances.vercel.app/cards/post-card4.webp',
+          'https:/convertext.vercel.app/backgrounds/bg1-convertext.webp',
+          'https:/convertext.vercel.app/backgrounds/bg2-convertext.webp',
+          'https:/convertext.vercel.app/backgrounds/bg3-convertext.webp',
+
         ]}
         datePublished="2022-06-21T23:04:13Z"
         dateModified="2022-01-21T18:04:43Z"
         authorName="Lopes Matheus S."
-        publisherName="Website About Insurances"
-        publisherLogo="https://aboutinsurances.vercel.app/logos/logo-72x72.png"
+        publisherName="Website ConverText"
+        publisherLogo="https://convertext.vercel.app/logos/logo-72x72.png"
         description={description}
       />
 

@@ -8,9 +8,10 @@ module.exports = {
     extend: {
       colors: {
         transparent: 'transparent',
-        color1: '#142039', //gray
-        color2: '#ff6341', //orange
-        color3: '#27ae60' //green
+        colorRed: '#c83737',
+        colorBlue: '#2c74db',
+        colorGreen: '#25bf6e',
+        colorGray: '#95a5a6',
       },
 
 

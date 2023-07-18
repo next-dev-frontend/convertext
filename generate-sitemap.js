@@ -2,7 +2,7 @@ const sitemap = require('nextjs-sitemap-generator');
 const targetDirectory = 'public';
 
 sitemap({
-  baseUrl: 'https://aboutinsurances.vercel.app',
+  baseUrl: 'https://convertext.vercel.app',
   pagesDirectory: __dirname + '/pages',
   ignoreIndexFiles: true,
   targetDirectory: targetDirectory,

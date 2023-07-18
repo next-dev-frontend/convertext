@@ -30,7 +30,7 @@ const LastTenDays = () => {
   return (
     <div className="select-none container mx-auto py-4 px-8 w-full max-w-5xl">
       <div className="flex flex-nowrap items-center justify-end">
-        <p className="text-sm md:text-md underline">last update: {formattedDate}</p>
+        <p className="text-sm md:text-md text-colorBlue">last update: {formattedDate}</p>
       </div>
     </div>
   );
