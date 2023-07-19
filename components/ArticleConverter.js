@@ -150,7 +150,7 @@ const ArticleConverter = () => {
     <div className="flex flex-col mx-auto w-full max-w-5xl p-8 space-y-4">
 
       <textarea
-        className="p-2 pb-4 border border-colorBlue rounded"
+        className="p-2 pb-4 border-2 border-colorBlue rounded"
         id='textArea'
         placeholder="Type or paste the text here"
         value={articleText}
@@ -164,7 +164,7 @@ const ArticleConverter = () => {
             <p className="text-lg font-medium text-gray-900">
               Settings
             </p>
-            <span className="shrink-0 rounded-full bg-colorBlue p-1.5 text-white sm:p-3">
+            <span className="shrink-0 rounded-full bg-blue-600 hover:bg-blue-700 p-1.5 text-white sm:p-3">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-45" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />
               </svg>
@@ -382,7 +382,7 @@ const ArticleConverter = () => {
       </div>
 
       <button
-        className="px-4 py-4 text-md md:text-xl text-white font-bold rounded bg-blue-600 hover:bg-blue-800"
+        className="px-4 py-4 text-md md:text-xl text-white font-bold rounded bg-blue-600 hover:bg-blue-700"
         onClick={convertToHtml}
       >
         Convert to HTML
@@ -391,14 +391,14 @@ const ArticleConverter = () => {
       {isHtmlGenerated && (
         <>
           <button
-            className="px-4 py-4 text-md md:text-xl text-white font-bold rounded bg-green-600 hover:bg-green-800"
+            className="px-4 py-4 text-md md:text-xl text-white font-bold rounded bg-green-600 hover:bg-green-700"
             onClick={copyHtmlToClipboard}
           >
             {copied ? 'HTML Copied' : 'Copy HTML'}
           </button>
 
           <button
-            className="px-4 py-2 text-md md:text-xl text-white font-bold rounded bg-red-600 hover:bg-red-800"
+            className="px-4 py-2 text-md md:text-xl text-white font-bold rounded bg-red-600 hover:bg-red-700"
             onClick={clearHtml}
           >
             Clear
