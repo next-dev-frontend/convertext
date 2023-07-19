@@ -2,7 +2,7 @@ const Advantages = () => {
   return (
     <section id="insurances" className="container mx-auto pt-4 pb-10 w-full max-w-5xl">
 
-      <div className="flex flex-nowrap items-center justify-left md:justify-center px-4 md:px-0 shadow-xl md:shadow-none py-8">
+      <div className="flex flex-nowrap items-center justify-left md:justify-center px-4 md:px-0 py-8">
         <div className="w-auto pl-5">
           <h2 className="my-4 text-left lg:text-center text-3xl md:text-4xl lg:text-5xl text-colorBlue font-bold">
             Advantages of Text to HTML Converter

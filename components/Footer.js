@@ -21,7 +21,7 @@ const Footer = () => {
                   />
                 </a>
               </div>
-              <p className="text-justify text-sm md:text-lg lg:text-xl text-gray-600">
+              <p className="text-justify text-sm md:text-lg lg:text-xl text-gray-900">
                 ConvertText is a powerful tool that simplifies the process of converting texts and articles into HTML code with inline styles. By streamlining the conversion process, enhancing visual appeal, improving search engine optimization, ensuring cross-platform compatibility, optimizing code efficiency, and offering customization options, ConvertText empowers content creators and web developers to deliver high-quality, visually appealing, and search engine-friendly content. Incorporating ConvertText into your workflow will not only save time and resources but also elevate the overall user experience of your website. Stay ahead of the competition by utilizing ConvertText and unlock the full potential of your online content.
               </p>
               <div className="flex justify-center md:justify-start">
@@ -32,7 +32,7 @@ const Footer = () => {
                       title="Facebook"
                       rel="noopener noreferrer"
                       target="_self"
-                      className="text-colorGray transition hover:text-colorBlue"
+                      className="text-gray-700 transition hover:text-colorBlue"
                     >
                       <span className="sr-only">Facebook</span>
                       <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -50,7 +50,7 @@ const Footer = () => {
                       title="Instagram"
                       rel="noopener noreferrer"
                       target="_self"
-                      className="text-colorGray transition hover:text-colorBlue"
+                      className="text-gray-700 transition hover:text-colorBlue"
                     >
                       <span className="sr-only">Instagram</span>
                       <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -68,7 +68,7 @@ const Footer = () => {
                       title="Twitter"
                       rel="noopener noreferrer"
                       target="_self"
-                      className="text-colorGray transition hover:text-colorBlue"
+                      className="text-gray-700 transition hover:text-colorBlue"
                     >
                       <span className="sr-only">Twitter</span>
                       <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -80,10 +80,10 @@ const Footer = () => {
               </div>
 
               <nav className="flex justify-center gap-4 text-xs md:justify-end">
-                <Link href="/terms-and-conditions" className='underline px-1 text-colorGray hover:text-colorBlue font-bold'>
+                <Link href="/terms-and-conditions" className='underline px-1 text-gray-700 hover:text-colorBlue font-bold'>
                   TERMS &amp; CONDITIONS / COOKIES
                 </Link>
-                <Link href="/privacy-policy" className='underline px-1 text-colorGray hover:text-colorBlue font-bold'>
+                <Link href="/privacy-policy" className='underline px-1 text-gray-700 hover:text-colorBlue font-bold'>
                   PRIVACY POLICY
                 </Link>
               </nav>

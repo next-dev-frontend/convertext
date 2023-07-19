@@ -34,7 +34,7 @@ const ArticleConverter = () => {
       const shouldAddH3 = formattedLine.length <= h3Length;
 
       if (formattedLine === '') {
-        // Linha em branco, adicione <br /> ou <br>
+        // Blank line, add <br /> or <br>
         return useBrTag ? brTagOption : '';
       }
 
@@ -152,7 +152,7 @@ const ArticleConverter = () => {
       <textarea
         className="p-2 pb-4 border border-colorBlue rounded"
         id='textArea'
-        placeholder="Digite ou cole o texto aqui"
+        placeholder="Type or paste the text here"
         value={articleText}
         rows={5}
         onChange={(e) => setArticleText(e.target.value)}
@@ -162,9 +162,9 @@ const ArticleConverter = () => {
         <details className="group border rounded border-gray-300 bg-gray-50 px-2 py-2">
           <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-4">
             <p className="text-lg font-medium text-gray-900">
-              Configurações
+              Settings
             </p>
-            <span className="shrink-0 rounded-full bg-colorBlue p-1.5 text-gray-900 sm:p-3">
+            <span className="shrink-0 rounded-full bg-colorBlue p-1.5 text-white sm:p-3">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-45" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />
               </svg>
@@ -179,7 +179,7 @@ const ArticleConverter = () => {
               onChange={() => setUseBrTag(!useBrTag)}
               className="mr-2"
             />
-            Adicionar quebras de linha &lt;br&gt;
+            Add line breaks &lt;br&gt;
           </label>
 
           {useBrTag && (
@@ -192,7 +192,7 @@ const ArticleConverter = () => {
                 onChange={(e) => setBrTagOption(e.target.value)}
                 className="mr-2"
               />
-              <label htmlFor="brChoiceSelfClosing" className="mr-4">Usar &lt;br /&gt;</label>
+              <label htmlFor="brChoiceSelfClosing" className="mr-4">Use &lt;br /&gt;</label>
 
               <input
                 type="radio"
@@ -202,7 +202,7 @@ const ArticleConverter = () => {
                 onChange={(e) => setBrTagOption(e.target.value)}
                 className="mr-2"
               />
-              <label htmlFor="brChoice2">Usar &lt;br&gt;</label>
+              <label htmlFor="brChoice2">Use &lt;br&gt;</label>
             </div>
           )}
 
@@ -217,7 +217,7 @@ const ArticleConverter = () => {
               }}
               className="mr-2"
             />
-            <label htmlFor="tailwindCSSChoice" className="mr-4">Usar Tailwind CSS</label>
+            <label htmlFor="tailwindCSSChoice" className="mr-4">Use Tailwind CSS</label>
             <input
               type="radio"
               id="customCSSChoice"
@@ -228,13 +228,13 @@ const ArticleConverter = () => {
               }}
               className="mr-2"
             />
-            <label htmlFor="customCSSChoice">Usar CSS personalizado</label>
+            <label htmlFor="customCSSChoice">Use custom CSS</label>
           </div>
 
           {useTailwindCSS ? (
             <div>
               <div className="flex items-center p-2 py-4">
-                <label htmlFor="tailwindCSSOption">Opções de sintaxe do Tailwind:</label>
+                <label htmlFor="tailwindCSSOption">Tailwind syntax options:</label>
                 <select
                   id="tailwindCSSOption"
                   value={tailwindCSSOption}
@@ -283,14 +283,14 @@ const ArticleConverter = () => {
           ) : (
             <div>
               <div className="flex items-center p-2 py-4">
-                <label htmlFor="cssSyntaxOption">Opções de sintaxe do CSS:</label>
+                <label htmlFor="cssSyntaxOption">CSS syntax options:</label>
                 <select
                   id="cssSyntaxOption"
                   value={cssSyntaxOption}
                   onChange={(e) => setCssSyntaxOption(e.target.value)}
                   className="ml-2 border rounded p-2"
                 >
-                  <option value="standard">Padrão</option>
+                  <option value="standard">Standard</option>
                   <option value="nextjs">Next.js</option>
                 </select>
               </div>
@@ -335,7 +335,7 @@ const ArticleConverter = () => {
 
           <div className="flex flex-wrap items-center border rounded border-gray-300 p-2 bg-gray-200">
             <div className="items-center p-2 space-x-2">
-              <label htmlFor="h2Length1">Tamanho mínimo para &lt;h2&gt;:</label>
+              <label htmlFor="h2Length1">Minimum length for &lt;h2&gt;:</label>
               <input
                 type="number"
                 id="h2Length1"
@@ -346,7 +346,7 @@ const ArticleConverter = () => {
             </div>
 
             <div className="items-center p-2 space-x-2">
-              <label htmlFor="h2Length2">Tamanho máximo para &lt;h2&gt;:</label>
+              <label htmlFor="h2Length2">Maximum length for &lt;h2&gt;:</label>
               <input
                 type="number"
                 id="h2Length2"
@@ -358,7 +358,7 @@ const ArticleConverter = () => {
           </div>
 
           <div className="flex items-center border border-gray-300 rounded p-4 bg-gray-200 space-x-2">
-            <label htmlFor="h3Length">Tamanho máximo para &lt;h3&gt;:</label>
+            <label htmlFor="h3Length">Maximum length for &lt;h3&gt;:</label>
             <input
               type="number"
               id="h3Length"
@@ -369,7 +369,7 @@ const ArticleConverter = () => {
           </div>
 
           <div className="flex items-center p-4">
-            <label htmlFor="encodeCharacters">Codificar caracteres especiais em HTML</label>
+            <label htmlFor="encodeCharacters">Encode special characters in HTML</label>
             <input
               type="checkbox"
               id="encodeCharacters"
@@ -382,26 +382,26 @@ const ArticleConverter = () => {
       </div>
 
       <button
-        className="px-4 py-4 text-md md:text-xl text-white rounded bg-blue-500 hover:bg-blue-700"
+        className="px-4 py-4 text-md md:text-xl text-white font-bold rounded bg-blue-500 hover:bg-blue-700"
         onClick={convertToHtml}
       >
-        Converter para HTML
+        Convert to HTML
       </button>
 
       {isHtmlGenerated && (
         <>
           <button
-            className="px-4 py-4 text-md md:text-xl text-white rounded bg-green-500 hover:bg-green-700"
+            className="px-4 py-4 text-md md:text-xl text-white font-bold rounded bg-green-500 hover:bg-green-700"
             onClick={copyHtmlToClipboard}
           >
-            {copied ? 'HTML copiado' : 'Copiar HTML'}
+            {copied ? 'HTML Copied' : 'Copy HTML'}
           </button>
 
           <button
-            className="px-4 py-2 text-md md:text-xl text-white rounded bg-red-500 hover:bg-red-700"
+            className="px-4 py-2 text-md md:text-xl text-white font-bold rounded bg-red-500 hover:bg-red-700"
             onClick={clearHtml}
           >
-            Limpar
+            Clear
           </button>
         </>
       )}

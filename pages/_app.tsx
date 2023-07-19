@@ -5,6 +5,7 @@ import React, { useEffect } from 'react';
 import { AppProps } from 'next/app'
 import Head from 'next/head';
 import dynamic from 'next/dynamic'
+const UseExemple = dynamic(() => import('../components/UseExemple'), { loading: () => <p>Loading...</p>, })
 const Advantages = dynamic(() => import('../components/Advantages'), { loading: () => <p>Loading...</p>, })
 const Instructions = dynamic(() => import('../components/Instructions'), { loading: () => <p>Loading...</p>, })
 const ArticleConverter = dynamic(() => import('../components/ArticleConverter'), { loading: () => <p>Loading...</p>, })
@@ -44,6 +45,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <SocialShare />
       <Instructions />
       <BgParallax />
+      <UseExemple />
       <Advantages />
       <SocialShare />
       <PublicationDate />

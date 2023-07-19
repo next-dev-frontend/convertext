@@ -12,13 +12,6 @@ class MyDocument extends Document {
         <body className="scrollbar scrollbar-thumb-colorBlue scrollbar-track-gray-200 overflow-x-hidden overflow-y-auto scrollbar-hide md:scrollbar-default">
           <Main />
           <NextScript />
-          <script
-            data-ad-client="ca-pub-4253472436511726"
-            defer
-            src="
-            https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-            crossOrigin="anonymous"
-          ></script>
         </body>
       </Html>
     )
