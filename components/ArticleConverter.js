@@ -382,7 +382,7 @@ const ArticleConverter = () => {
       </div>
 
       <button
-        className="px-4 py-4 text-md md:text-xl text-white font-bold rounded bg-blue-500 hover:bg-blue-700"
+        className="px-4 py-4 text-md md:text-xl text-white font-bold rounded bg-blue-600 hover:bg-blue-800"
         onClick={convertToHtml}
       >
         Convert to HTML
@@ -391,14 +391,14 @@ const ArticleConverter = () => {
       {isHtmlGenerated && (
         <>
           <button
-            className="px-4 py-4 text-md md:text-xl text-white font-bold rounded bg-green-500 hover:bg-green-700"
+            className="px-4 py-4 text-md md:text-xl text-white font-bold rounded bg-green-600 hover:bg-green-800"
             onClick={copyHtmlToClipboard}
           >
             {copied ? 'HTML Copied' : 'Copy HTML'}
           </button>
 
           <button
-            className="px-4 py-2 text-md md:text-xl text-white font-bold rounded bg-red-500 hover:bg-red-700"
+            className="px-4 py-2 text-md md:text-xl text-white font-bold rounded bg-red-600 hover:bg-red-800"
             onClick={clearHtml}
           >
             Clear

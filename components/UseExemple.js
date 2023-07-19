@@ -72,7 +72,7 @@ const Advantages = () => {
             <div className="flex flex-nowrap items-center justify-center px-4 md:px-0 shadow-xl md:shadow-none py-8">
               <div className="w-auto pl-5">
                 <button
-                  className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-2"
+                  className="bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded mt-2"
                   onClick={copyCodeToClipboard}
                 >
                   {isCopied ? 'Copied!' : 'Copy Code'}
