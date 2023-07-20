@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Host: https://convertext.vercel.app
-Sitemap: https://convertext.vercel.app/sitemap.xml
+Host: https://conver-text.vercel.app
+Sitemap: https://conver-text.vercel.app/sitemap.xml

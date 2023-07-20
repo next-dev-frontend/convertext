@@ -37,7 +37,7 @@ self.addEventListener('fetch', event => {
           })
           .catch(() => {
             // If fetch fails, return the offline page
-            return caches.match('/offline');
+            return caches.match('/page-offline');
           });
       })
   );

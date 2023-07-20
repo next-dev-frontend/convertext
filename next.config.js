@@ -27,7 +27,7 @@ frame-src 'self' *.googleadservices.com *.googletagmanager.com *.googletagservic
 img-src 'self' data: blob: https: 'unsafe-inline' *.googleadservices.com *.googletagmanager.com *.googletagservices.com *.googlesyndication.com *.google-analytics.com *.googleapis.com *.ggpht.com *.google.com *.google.co.uk *.gstatic.com *.doubleclick.net;  
 manifest-src 'self';
 object-src 'none';
-script-src 'self' https: 'nonce-${nonceScriptSrc}' 'unsafe-inline' 'strict-dynamic' ${isProduction ? "" : "'unsafe-eval'"} https://convertext.vercel.app/* *.googleadservices.com *.googletagmanager.com *.googletagservices.com *.googlesyndication.com *.google-analytics.com *.googleapis.com *.ggpht.com *.google.com *.google.co.uk *.gstatic.com *.doubleclick.net;
+script-src 'self' https: 'nonce-${nonceScriptSrc}' 'unsafe-inline' 'strict-dynamic' ${isProduction ? "" : "'unsafe-eval'"} https://conver-text.vercel.app/* *.googleadservices.com *.googletagmanager.com *.googletagservices.com *.googlesyndication.com *.google-analytics.com *.googleapis.com *.ggpht.com *.google.com *.google.co.uk *.gstatic.com *.doubleclick.net;
 script-src-elem 'self' 'unsafe-inline' *.googleadservices.com *.googletagmanager.com *.googletagservices.com *.googlesyndication.com *.google-analytics.com *.googleapis.com *.ggpht.com *.google.com *.google.co.uk *.gstatic.com *.doubleclick.net;
 style-src 'self' 'unsafe-inline';
 `;

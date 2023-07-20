@@ -2,7 +2,7 @@ const sitemap = require('nextjs-sitemap-generator');
 const targetDirectory = 'public';
 
 sitemap({
-  baseUrl: 'https://convertext.vercel.app',
+  baseUrl: 'https://conver-text.vercel.app',
   pagesDirectory: __dirname + '/pages',
   ignoreIndexFiles: true,
   targetDirectory: targetDirectory,

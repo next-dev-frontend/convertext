@@ -10,6 +10,8 @@ const ArticleConverter = () => {
   const [useTailwindCSS, setUseTailwindCSS] = useState(true);
   const [tailwindCSSOption, setTailwindCSSOption] = useState('className');
   const [cssSyntaxOption, setCssSyntaxOption] = useState('standard');
+  const [transformH2ToH1, setTransformH2ToH1] = useState(false);
+  const [h1Style, setH1Style] = useState('');
   const [h2Style, setH2Style] = useState('');
   const [h3Style, setH3Style] = useState('');
   const [pStyle, setPStyle] = useState('');
@@ -28,6 +30,8 @@ const ArticleConverter = () => {
   const convertToHtml = () => {
     const lines = articleText.split('\n');
 
+    let isFirstH2Generated = false;
+
     let formattedLines = lines.map((line) => {
       const formattedLine = line.trim();
       const shouldAddH2 = formattedLine.length >= h2Length1 && formattedLine.length <= h2Length2;
@@ -42,10 +46,19 @@ const ArticleConverter = () => {
 
       if (useTailwindCSS) {
         if (shouldAddH2) {
-          if (h2Style !== '') {
-            paragraphElement += `<h2 ${tailwindCSSOption}="${h2Style}">${encodeSpecialCharacters(formattedLine)}</h2>`;
+          if (transformH2ToH1 && !isFirstH2Generated) {
+            isFirstH2Generated = true;
+            if (h1Style !== '') {
+              paragraphElement += `<h1 ${tailwindCSSOption}="${h1Style}">${encodeSpecialCharacters(formattedLine)}</h1>`;
+            } else {
+              paragraphElement += `<h1>${encodeSpecialCharacters(formattedLine)}</h1>`;
+            }
           } else {
-            paragraphElement += `<h2>${encodeSpecialCharacters(formattedLine)}</h2>`;
+            if (h2Style !== '') {
+              paragraphElement += `<h2 ${tailwindCSSOption}="${h2Style}">${encodeSpecialCharacters(formattedLine)}</h2>`;
+            } else {
+              paragraphElement += `<h2>${encodeSpecialCharacters(formattedLine)}</h2>`;
+            }
           }
         } else if (shouldAddH3) {
           if (h3Style !== '') {
@@ -66,19 +79,40 @@ const ArticleConverter = () => {
 
           if (cssSyntaxOption === 'standard') {
             if (h2Style !== '') {
-              cssStyle = ` style="${h2Style}"`;
+              if (transformH2ToH1 && !isFirstH2Generated) {
+                if (h1Style !== '') {
+                  cssStyle = ` style="${h1Style}"`;
+                } else {
+                  cssStyle = ``;
+                }
+              } else {
+                cssStyle = ` style="${h2Style}"`;
+              }
             } else {
               cssStyle = ``;
             }
           } else if (cssSyntaxOption === 'nextjs') {
             if (h2Style !== '') {
-              cssStyle = ` style={{${h2Style}}}`;
+              if (transformH2ToH1 && !isFirstH2Generated) {
+                if (h1Style !== '') {
+                  cssStyle = ` style={{${h1Style}}}`;
+                } else {
+                  cssStyle = ``;
+                }
+              } else {
+                cssStyle = ` style={{${h2Style}}}`;
+              }
             } else {
               cssStyle = ``;
             }
           }
 
-          paragraphElement += `<h2${cssStyle}>${encodeSpecialCharacters(formattedLine)}</h2>`;
+          if (transformH2ToH1 && !isFirstH2Generated) {
+            isFirstH2Generated = true;
+            paragraphElement += `<h1${cssStyle}>${encodeSpecialCharacters(formattedLine)}</h1>`;
+          } else {
+            paragraphElement += `<h2${cssStyle}>${encodeSpecialCharacters(formattedLine)}</h2>`;
+          }
         } else if (shouldAddH3) {
           let cssStyle = '';
 
@@ -126,9 +160,17 @@ const ArticleConverter = () => {
     setCopied(false);
   };
 
+  const [isCopied, setIsCopied] = useState(false);
+
   const copyHtmlToClipboard = () => {
     navigator.clipboard.writeText(htmlArticle);
     setCopied(true);
+
+    navigator.clipboard.writeText(code);
+    setIsCopied(true);
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 2000);
   };
 
   const clearHtml = () => {
@@ -136,18 +178,34 @@ const ArticleConverter = () => {
     setArticleText('');
     setCleared(true);
     setCopied(false);
+  };
+
+  const clearSettings = () => {
+    setUseBrTag(true);
+    setBrTagOption('<br />');
+    setUseTailwindCSS(true);
+    setTailwindCSSOption('className');
+    setCssSyntaxOption('standard');
+    setTransformH2ToH1(false);
+    setH1Style('');
     setH2Style('');
     setH3Style('');
     setPStyle('');
     setH2Length1(40);
     setH2Length2(70);
     setH3Length(39);
+    setEncodeCharacters(true);
   };
+
 
   const isHtmlGenerated = htmlArticle !== '';
 
   return (
-    <div className="flex flex-col mx-auto w-full max-w-5xl p-8 space-y-4">
+    <div className="flex flex-col mx-auto w-full max-w-5xl p-6 pb-12 space-y-4">
+
+      <label className="text-left text-3xl md:text-4xl lg:text-5xl text-colorBlue font-bold">
+        Input
+      </label>
 
       <textarea
         className="p-2 pb-4 border-2 border-colorBlue rounded"
@@ -247,6 +305,30 @@ const ArticleConverter = () => {
               </div>
 
               <div className="flex items-center p-2 space-x-2">
+                <input
+                  type="checkbox"
+                  id="transformH2ToH1"
+                  checked={transformH2ToH1}
+                  onChange={() => setTransformH2ToH1(!transformH2ToH1)}
+                  className="ml-2"
+                />
+                <label htmlFor="transformH2ToH1">Transform first &lt;h2&gt; to &lt;h1&gt;</label>
+              </div>
+              {transformH2ToH1 && (
+                <div className="flex items-center p-2 space-x-2">
+                  <label htmlFor="h2Style">&lt;h1&gt;</label>
+                  <input
+                    type="text"
+                    id="h1Style"
+                    value={h1Style}
+                    placeholder="font-bold text-blue-700"
+                    onChange={(e) => setH1Style(e.target.value)}
+                    className="w-full p-1 border border-gray-300 rounded"
+                  />
+                </div>
+              )}
+
+              <div className="flex items-center p-2 space-x-2">
                 <label htmlFor="h2Style">&lt;h2&gt;</label>
                 <input
                   type="text"
@@ -291,9 +373,33 @@ const ArticleConverter = () => {
                   className="ml-2 border rounded p-2"
                 >
                   <option value="standard">Standard</option>
-                  <option value="nextjs">Next.js</option>
+                  <option value="nextjs">React</option>
                 </select>
               </div>
+
+              <div className="flex items-center p-2 space-x-2">
+                <input
+                  type="checkbox"
+                  id="transformH2ToH1"
+                  checked={transformH2ToH1}
+                  onChange={() => setTransformH2ToH1(!transformH2ToH1)}
+                  className="ml-2"
+                />
+                <label htmlFor="transformH2ToH1">Transform first &lt;h2&gt; to &lt;h1&gt;</label>
+              </div>
+              {transformH2ToH1 && (
+                <div className="flex items-center p-2 space-x-2">
+                  <label htmlFor="h2Style">&lt;h1&gt;</label>
+                  <input
+                    type="text"
+                    id="h1Style"
+                    value={h1Style}
+                    placeholder="font-bold text-blue-700"
+                    onChange={(e) => setH1Style(e.target.value)}
+                    className="w-full p-1 border border-gray-300 rounded"
+                  />
+                </div>
+              )}
 
               <div className="flex items-center p-2 space-x-2">
                 <label htmlFor="h2Style">&lt;h2&gt;</label>
@@ -378,6 +484,16 @@ const ArticleConverter = () => {
               className="ml-2"
             />
           </div>
+
+          <div className="flex items-center p-4">
+            <button
+              className="px-4 py-2 text-md md:text-xl text-white font-bold rounded bg-gray-600 hover:bg-gray-700"
+              onClick={clearSettings}
+            >
+              Reset Settings
+            </button>
+          </div>
+
         </details>
       </div>
 
@@ -394,7 +510,7 @@ const ArticleConverter = () => {
             className="px-4 py-4 text-md md:text-xl text-white font-bold rounded bg-green-600 hover:bg-green-700"
             onClick={copyHtmlToClipboard}
           >
-            {copied ? 'HTML Copied' : 'Copy HTML'}
+            {isCopied ? 'Copied!' : 'Copy Generated HTML'}
           </button>
 
           <button
@@ -407,13 +523,28 @@ const ArticleConverter = () => {
       )}
 
       {isHtmlGenerated && (
-        <div className="max-w-full overflow-x-auto">
+        <div className="w-full max-w-full overflow-x-auto py-6">
+          <div className="text-left pb-2 text-3xl md:text-4xl lg:text-5xl text-colorBlue font-bold">
+            Converted Code
+          </div>
+
           <pre
-            className="p-2 border border-gray-300 rounded"
+            className="p-2 border-2 border-colorBlue rounded"
             style={{ whiteSpace: 'pre-wrap', overflowX: 'auto' }}
           >
             {htmlArticle}
           </pre>
+          <br />
+          <div className="w-full h-auto rounded bg-green-600 hover:bg-green-700 text-center">
+            <button
+              className="px-4 py-4 text-md md:text-xl text-white font-bold"
+              onClick={copyHtmlToClipboard}
+            >
+              {isCopied ? 'Copied!' : 'Copy Generated HTML'}
+            </button>
+          </div>
+
+
         </div>
       )}
     </div>

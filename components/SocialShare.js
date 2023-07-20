@@ -22,7 +22,7 @@ import {
 
 function SocialShare() {
   return (
-    <div id="shareButtons" className="mx-auto px-8 py-8 w-full max-w-5xl">
+    <div id="shareButtons" className="select-none bg-gray-100 rounded mx-auto px-8 py-4 w-full max-w-5xl">
 
       <div className="flex flex-wrap text-gray-700">
         <div className="w-full text-md md:text-xl lg:text-2xl">
@@ -35,7 +35,7 @@ function SocialShare() {
       <div className="flex flex-wrap md:flex-no-wrap">
         <div className="px-1">
           <FacebookShareButton
-            url={'https://convertext.vercel.app'}
+            url={'https://conver-text.vercel.app'}
             quote={'Convert Text to Html with CSS ou Tailwind.'}
             hashtag={'#converttexttohtml #texttohtml #converttext'}
             blankTarget='true'
@@ -46,7 +46,7 @@ function SocialShare() {
 
         <div className="px-1">
           <LineShareButton
-            url={'https://convertext.vercel.app'}
+            url={'https://conver-text.vercel.app'}
             title={'Convert Text to Html with CSS ou Tailwind.'}
             blankTarget='true'
           >
@@ -56,7 +56,7 @@ function SocialShare() {
 
         <div className="px-1">
           <PinterestShareButton
-            url={'https://convertext.vercel.app'}
+            url={'https://conver-text.vercel.app'}
             media={'Convert Text to Html with CSS ou Tailwind.'}
             description="Welcome to the ConverText website! Below you will find information about the application's features and how to use them to convert your text to HTML with Custom Styles. Let's start."
             blankTarget='true'
@@ -67,7 +67,7 @@ function SocialShare() {
 
         <div className="px-1">
           <WhatsappShareButton
-            url={"https://convertext.vercel.app"}
+            url={"https://conver-text.vercel.app"}
             title={"Convert Text to Html with CSS ou Tailwind."}
             separator=":: "
             blankTarget='true'
@@ -78,7 +78,7 @@ function SocialShare() {
 
         <div className="px-1">
           <TwitterShareButton
-            url={"https://convertext.vercel.app"}
+            url={"https://conver-text.vercel.app"}
             title={"Convert Text to Html with CSS ou Tailwind."}
             hashtag={'#converttexttohtml #texttohtml #converttext'}
             blankTarget='true'
@@ -89,7 +89,7 @@ function SocialShare() {
 
         <div className="px-1">
           <TelegramShareButton
-            url={"https://convertext.vercel.app"}
+            url={"https://conver-text.vercel.app"}
             title={"Convert Text to Html with CSS ou Tailwind."}
             blankTarget='true'
           >
@@ -99,7 +99,7 @@ function SocialShare() {
 
         <div className="px-1">
           <LinkedinShareButton
-            url={'https://github.com/next-share'}
+            url={'https://conver-text.vercel.app'}
             blankTarget='true'
           >
             <LinkedinIcon size={46} round />
@@ -108,7 +108,7 @@ function SocialShare() {
 
         <div className="px-1">
           <RedditShareButton
-            url={"https://convertext.vercel.app"}
+            url={"https://conver-text.vercel.app"}
             title={"Convert Text to Html with CSS ou Tailwind."}
             blankTarget='true'
           >
@@ -118,7 +118,7 @@ function SocialShare() {
 
         <div className="px-1">
           <EmailShareButton
-            url={"https://convertext.vercel.app"}
+            url={"https://conver-text.vercel.app"}
             subject={"Convert Text to Html with CSS ou Tailwind."}
             body="body"
             blankTarget='true'

@@ -1,8 +1,8 @@
 import { ArticleJsonLd, NextSeo } from 'next-seo'
 
 function PageSeo({ title, titleTemplate, description, path, children }) {
-  const url = `https://convertext.vercel.app${path}`
-  const imageUrl = 'https:/convertext.vercel.app/backgrounds/bg1-convertext.webp';
+  const url = `https://conver-text.vercel.app${path}`
+  const imageUrl = 'https:/conver-text.vercel.app/backgrounds/bg1-convertext.webp';
 
   return (
     <div>
@@ -54,16 +54,16 @@ function PageSeo({ title, titleTemplate, description, path, children }) {
         url={url}
         title={title}
         images={[
-          'https:/convertext.vercel.app/backgrounds/bg1-convertext.webp',
-          'https:/convertext.vercel.app/backgrounds/bg2-convertext.webp',
-          'https:/convertext.vercel.app/backgrounds/bg3-convertext.webp',
+          'https:/conver-text.vercel.app/backgrounds/bg1-convertext.webp',
+          'https:/conver-text.vercel.app/backgrounds/bg2-convertext.webp',
+          'https:/conver-text.vercel.app/backgrounds/bg3-convertext.webp',
 
         ]}
         datePublished="2022-06-21T23:04:13Z"
         dateModified="2022-01-21T18:04:43Z"
         authorName="Lopes Matheus S."
         publisherName="Website ConverText"
-        publisherLogo="https://convertext.vercel.app/logos/logo-72x72.png"
+        publisherLogo="https://conver-text.vercel.app/logos/logo-72x72.png"
         description={description}
       />
 

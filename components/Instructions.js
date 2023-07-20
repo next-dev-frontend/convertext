@@ -2,7 +2,7 @@ import Image from 'next/legacy/image'
 
 const Instructions = () => {
   return (
-    <section id="insurances" className="container mx-auto pb-10 w-full max-w-5xl">
+    <section id="insurances" className="select-none container mx-auto pb-10 w-full max-w-5xl">
 
       <div className="flex flex-nowrap items-center justify-left md:justify-center px-4 md:px-0 py-8">
         <div className="w-auto pl-5">
@@ -55,16 +55,20 @@ const Instructions = () => {
             <p>The "Encode special characters in HTML" functionality allows you to choose whether to encode special characters present in the converted text to HTML.</p>
             <h2 className="font-bold">Check the checkbox to enable special character encoding.</h2>
             <br />
-            <h3 className="font-bold">7. Conversion to HTML:</h3>
+            <h3 className="font-bold">7. Reset Settings:</h3>
+            <br />
+            <p>If you want to reset the settings and leave it as the initial default of the site, click on "Reset Settings", which is at the bottom right of the configuration screen.</p>
+            <br />
+            <h3 className="font-bold">8. Conversion to HTML:</h3>
             <br />
             <p>Click the "Convert to HTML" button to start converting the text to HTML.</p>
             <p>The text will be processed according to the selected settings and the resulting HTML will be displayed in the output box.</p>
             <br />
-            <h3 className="font-bold">8. Copy and Clear:</h3>
+            <h3 className="font-bold">9. Copy and Clear:</h3>
             <br />
             <p>After generating the HTML, you can copy it to the clipboard by clicking the "Copy HTML" button.</p>
             <p>If the copy is successful, you will see the message "HTML copied" on the button.</p>
-            <p>If you want to clear input text, generated HTML and reset all settings, click "Clear" button.</p>
+            <p>If you want to clear the input text and the generated HTML, click the "Clear" button.</p>
             <br />
             <p>Remember to review and adjust the settings to your needs before converting text to HTML. Take advantage of Text to HTML Converter and easily create your HTML code from your text!</p>
             <br />

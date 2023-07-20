@@ -12,7 +12,7 @@ export default function Home() {
       path="/"
     >
       <main>
-        <article className="flex flex-col mx-auto w-full max-w-5xl p-8 space-y-4">
+        <article className="select-none flex flex-col mx-auto w-full max-w-5xl p-8 space-y-4">
           <div className="flex items-start gap-4">
             <div className="pt-5 sm:grid sm:rounded-full">
               <div className="relative w-16 md:w-24 lg:w-32 h-auto border-2 border-white rounded-full">
