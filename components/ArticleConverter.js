@@ -45,6 +45,7 @@ const ArticleConverter = () => {
       let paragraphElement = '';
 
       if (useTailwindCSS) {
+
         if (shouldAddH2) {
           if (transformH2ToH1 && !isFirstH2Generated) {
             isFirstH2Generated = true;
@@ -78,33 +79,37 @@ const ArticleConverter = () => {
           let cssStyle = '';
 
           if (cssSyntaxOption === 'standard') {
-            if (h2Style !== '') {
-              if (transformH2ToH1 && !isFirstH2Generated) {
-                if (h1Style !== '') {
-                  cssStyle = ` style="${h1Style}"`;
-                } else {
-                  cssStyle = ``;
-                }
+            if (transformH2ToH1 && !isFirstH2Generated) {
+              if (h1Style !== '') {
+                cssStyle = ` style="${h1Style}"`;
               } else {
+                cssStyle = ``;
+              }
+            } else {
+              if (h2Style !== '') {
                 cssStyle = ` style="${h2Style}"`;
-              }
-            } else {
-              cssStyle = ``;
-            }
-          } else if (cssSyntaxOption === 'nextjs') {
-            if (h2Style !== '') {
-              if (transformH2ToH1 && !isFirstH2Generated) {
-                if (h1Style !== '') {
-                  cssStyle = ` style={{${h1Style}}}`;
-                } else {
-                  cssStyle = ``;
-                }
               } else {
-                cssStyle = ` style={{${h2Style}}}`;
+                cssStyle = ``;
+              }
+            }
+
+
+          } else if (cssSyntaxOption === 'nextjs') {
+
+            if (transformH2ToH1 && !isFirstH2Generated) {
+              if (h1Style !== '') {
+                cssStyle = ` style={{${h1Style}}}`;
+              } else {
+                cssStyle = ``;
               }
             } else {
-              cssStyle = ``;
+              if (h2Style !== '') {
+                cssStyle = ` style={{${h2Style}}}`;
+              } else {
+                cssStyle = ``;
+              }
             }
+
           }
 
           if (transformH2ToH1 && !isFirstH2Generated) {
@@ -165,8 +170,6 @@ const ArticleConverter = () => {
   const copyHtmlToClipboard = () => {
     navigator.clipboard.writeText(htmlArticle);
     setCopied(true);
-
-    navigator.clipboard.writeText(code);
     setIsCopied(true);
     setTimeout(() => {
       setIsCopied(false);
