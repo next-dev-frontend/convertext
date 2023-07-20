@@ -21,10 +21,16 @@ const ArticleConverter = () => {
   const [encodeCharacters, setEncodeCharacters] = useState(true);
 
   const encodeSpecialCharacters = (text) => {
-    return text
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;');
+    if (encodeCharacters) {
+      return text
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;') //  (for ENT_HTML401) or &apos; (for ENT_XML1, ENT_XHTML, or ENT_HTML5) when ENT_QUOTES is set
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    } else {
+      return text;
+    }
   };
 
   const convertToHtml = () => {
@@ -204,7 +210,7 @@ const ArticleConverter = () => {
   const isHtmlGenerated = htmlArticle !== '';
 
   return (
-    <div className="flex flex-col mx-auto w-full max-w-5xl p-6 pb-12 space-y-4">
+    <div className="select-none flex flex-col mx-auto w-full max-w-5xl p-6 pb-12 space-y-4">
 
       <label className="text-left text-3xl md:text-4xl lg:text-5xl text-colorBlue font-bold">
         Input
@@ -532,7 +538,7 @@ const ArticleConverter = () => {
           </div>
 
           <pre
-            className="p-2 border-2 border-colorBlue rounded"
+            className="p-2 border-2 border-colorBlue rounded select-text"
             style={{ whiteSpace: 'pre-wrap', overflowX: 'auto' }}
           >
             {htmlArticle}

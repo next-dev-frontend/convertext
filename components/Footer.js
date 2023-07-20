@@ -22,7 +22,7 @@ const Footer = () => {
                 </a>
               </div>
               <p className="text-justify text-sm md:text-lg lg:text-xl text-gray-900">
-                ConvertText is a powerful tool that simplifies the process of converting texts and articles into HTML code with inline styles. By streamlining the conversion process, enhancing visual appeal, improving search engine optimization, ensuring cross-platform compatibility, optimizing code efficiency, and offering customization options, ConvertText empowers content creators and web developers to deliver high-quality, visually appealing, and search engine-friendly content. Incorporating ConvertText into your workflow will not only save time and resources but also elevate the overall user experience of your website. Stay ahead of the competition by utilizing ConvertText and unlock the full potential of your online content.
+                ConverText is a powerful tool that simplifies the process of converting texts and articles into HTML code with inline styles. By streamlining the conversion process, enhancing visual appeal, improving search engine optimization, ensuring cross-platform compatibility, optimizing code efficiency, and offering customization options, ConverText empowers content creators and web developers to deliver high-quality, visually appealing, and search engine-friendly content. Incorporating ConverText into your workflow will not only save time and resources but also elevate the overall user experience of your website. Stay ahead of the competition by utilizing ConverText and unlock the full potential of your online content.
               </p>
               <div className="flex justify-center md:justify-start">
                 <ul className="flex gap-4 md:gap-6">
