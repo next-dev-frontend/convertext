@@ -13,6 +13,7 @@ export default function Home() {
     >
       <main>
         <article className="select-none flex flex-col mx-auto w-full max-w-5xl p-8 space-y-4">
+
           <div className="flex items-start gap-4">
             <div className="pt-5 sm:grid sm:rounded-full">
               <div className="relative w-16 md:w-24 lg:w-32 h-auto border-2 border-white rounded-full">
@@ -34,7 +35,7 @@ export default function Home() {
                 Convert Text To Html With Tailwind or Css
               </h1>
               <p className="hidden md:flex mt-1 text-md sm:text-xl text-gray-700">
-                ConvertText provides a user-friendly interface that simplifies the conversion process. With its intuitive design and easy-to-follow instructions, users can effortlessly transform their text and articles into HTML code with inline styles!
+                ConvеrtTеxt providеs a usеr-friеndly intеrfacе that simplifiеs thе convеrsion procеss.  With its intuitivе dеsign and еasy-to-follow instructions,  usеrs can еffortlеssly transform thеir tеxt and articlеs into HTML codе with inlinе stylеs!
               </p>
               <div className="mt-4 sm:flex sm:items-center sm:gap-2">
                 <div className="flex items-center gap-1 text-gray-900">
@@ -50,6 +51,11 @@ export default function Home() {
               </div>
             </div>
           </div>
+
+          <div>
+            <h2 className="font-bold text-white bg-colorGreen text-center p-2 text-sm md:text-lg lg:text-xl rounded">No rеgistration! - Unlimited text size! - Totally FREE forеvеr!</h2>
+          </div>
+
         </article>
       </main>
     </PageSeo>

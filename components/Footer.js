@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const Footer = () => {
   return (
-    <footer className="select-none bg-gray-200 bg-center bg-cover bg-fixed bg-no-repeat">
+    <footer className="bg-gray-200 bg-center bg-cover bg-fixed bg-no-repeat">
       <div className="container mx-auto w-full max-w-5xl h-auto">
         <div className="grid grid-cols-1 gap-6">
           <div className="md:order-1 py-6 md:py-6 px-6">
@@ -22,7 +22,7 @@ const Footer = () => {
                 </a>
               </div>
               <p className="text-justify text-sm md:text-lg lg:text-xl text-gray-900">
-                ConverText is a powerful tool that simplifies the process of converting texts and articles into HTML code with inline styles. By streamlining the conversion process, enhancing visual appeal, improving search engine optimization, ensuring cross-platform compatibility, optimizing code efficiency, and offering customization options, ConverText empowers content creators and web developers to deliver high-quality, visually appealing, and search engine-friendly content. Incorporating ConverText into your workflow will not only save time and resources but also elevate the overall user experience of your website. Stay ahead of the competition by utilizing ConverText and unlock the full potential of your online content.
+                ConvеrTеxt is a tool that simplifiеs thе procеss of convеrting tеxts and articlеs into HTML codе with inlinе stylеs Tailwind or CSS.  By strеamlining thе convеrsion procеss,  еnhancing visual appеal,  improving sеarch еnginе optimization,  еnsuring cross-platform compatibility,  optimizing codе еfficiеncy,  and offеring customization options,  ConvеrTеxt еmpowеrs contеnt crеators and wеb dеvеlopеrs to dеlivеr high-quality,  visually appеaling,  and sеarch еnginе-friеndly contеnt.  Incorporating ConvеrTеxt into your workflow will not only savе timе and rеsourcеs but also еlеvatе thе ovеrall usеr еxpеriеncе of your wеbsitе.  Stay ahеad of thе compеtition by utilizing ConvеrTеxt and unlock thе full potеntial of your onlinе contеnt.
               </p>
               <div className="flex justify-center md:justify-start">
                 <ul className="flex gap-4 md:gap-6">

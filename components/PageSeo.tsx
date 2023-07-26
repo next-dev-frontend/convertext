@@ -3,6 +3,7 @@ import { ArticleJsonLd, NextSeo } from 'next-seo'
 function PageSeo({ title, titleTemplate, description, path, children }) {
   const url = `https://conver-text.vercel.app${path}`
   const imageUrl = 'https:/conver-text.vercel.app/backgrounds/bg1-convertext.webp';
+  const currentDate = new Date().toISOString();
 
   return (
     <div>
@@ -30,8 +31,8 @@ function PageSeo({ title, titleTemplate, description, path, children }) {
         openGraph={{
           type: 'article',
           article: {
-            publishedTime: '2022-06-23T23:04:13Z',
-            modifiedTime: '2022-01-23T18:04:43Z',
+            publishedTime: currentDate,
+            modifiedTime: currentDate,
             tags: ['convert text to html', 'convert text', 'convert to html', 'text to html', 'txt to html'],
           },
           url: url,
@@ -59,10 +60,10 @@ function PageSeo({ title, titleTemplate, description, path, children }) {
           'https:/conver-text.vercel.app/backgrounds/bg3-convertext.webp',
 
         ]}
-        datePublished="2022-06-21T23:04:13Z"
-        dateModified="2022-01-21T18:04:43Z"
+        datePublished={currentDate}
+        dateModified={currentDate}
         authorName="Lopes Matheus S."
-        publisherName="Website ConverText"
+        publisherName="ConverText Website"
         publisherLogo="https://conver-text.vercel.app/logos/logo-72x72.png"
         description={description}
       />

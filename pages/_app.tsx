@@ -45,6 +45,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <SocialShare />
       <Instructions />
       <BgParallax />
+      <SocialShare />
       <UseExemple />
       <Advantages />
       <SocialShare />
