@@ -53,7 +53,7 @@ export default function Home() {
           </div>
 
           <div>
-            <h2 className="font-bold text-white bg-green-600 text-center p-2 text-sm md:text-lg lg:text-xl rounded">No rеgistration! - Unlimited text size! - Totally FREE forеvеr!</h2>
+            <h2 className="font-bold text-white bg-green-700 text-center p-2 text-sm md:text-lg lg:text-xl rounded">No rеgistration! - Unlimited text size! - Totally FREE forеvеr!</h2>
           </div>
 
         </article>
