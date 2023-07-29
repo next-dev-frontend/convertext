@@ -15,7 +15,7 @@ const Advantages = () => {
       </div>
 
       <div className="flex flex-wrap text-gray-500 px-2">
-        <div className="w-full px-8 text-md md:text-lg lg:text-xl">
+        <div className="w-full px-4 text-md md:text-lg lg:text-xl">
           <div className="mx-auto align-middle text-justify">
 
             <p className="text-gray-700">Tеxt to HTML Convеrtеr is a powеrful tool that offеrs sеvеral advantagеs for usеrs who want to convеrt thеir tеxt into HTML codе.</p>

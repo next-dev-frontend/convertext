@@ -78,7 +78,7 @@ const securityHeaders = [
 module.exports = withTM(
   withImages(
     withPWA({
-      reactStrictMode: true,
+      reactStrictMode: false,
       distDir: '.next',
 
       async headers() {
