@@ -10,7 +10,10 @@ export default function Home() {
       titleTemplate="%s | With Tailwind or Css"
       description="ConvertText provides a user-friendly interface that simplifies the conversion process. With its intuitive design and easy-to-follow instructions, users can effortlessly transform their text and articles into HTML code with inline styles!"
       path="/"
+      publishedTime="2023-07-18T22:20:00Z"
+      modifiedTime="2023-07-29T22:01:33Z"
     >
+
       <main>
         <article className="select-none flex flex-col mx-auto w-full max-w-5xl p-8 space-y-4">
 
@@ -20,11 +23,12 @@ export default function Home() {
                 <a href="/">
                   <Image
                     src="/logos/logo-convertext.webp"
-                    alt="logo sobre seguros"
+                    alt="logo da ConverText"
                     layout="responsive"
                     objectFit="cover"
                     width={512}
                     height={512}
+                    priority={true}
                     className="rounded-full"
                   />
                 </a>

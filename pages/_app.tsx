@@ -11,7 +11,6 @@ const Instructions = dynamic(() => import('../components/Instructions'), { loadi
 const BgParallax = dynamic(() => import('../components/BgParallax'), { loading: () => <p>Loading...</p>, })
 const UseExemple = dynamic(() => import('../components/UseExemple'), { loading: () => <p>Loading...</p>, })
 const Advantages = dynamic(() => import('../components/Advantages'), { loading: () => <p>Loading...</p>, })
-const PublicationDate = dynamic(() => import('../components/PublicationDate'))
 const Footer = dynamic(() => import('../components/Footer'), { loading: () => <p>Loading...</p>, })
 const Analytics = dynamic(() => import('../components/Analytics'))
 
@@ -49,7 +48,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <UseExemple />
       <Advantages />
       <SocialShare />
-      <PublicationDate />
       <Footer />
       <Analytics />
     </>

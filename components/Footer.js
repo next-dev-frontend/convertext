@@ -4,6 +4,13 @@ import Link from 'next/link';
 const Footer = () => {
   return (
     <footer className="bg-gray-200 bg-center bg-cover bg-fixed bg-no-repeat">
+
+      <div className="container mx-auto py-4 px-8 w-full max-w-5xl">
+        <div className="flex flex-nowrap items-center justify-end">
+          <p className="text-sm text-colorBlue md:text-md">last update: July 30, 2023.</p>
+        </div>
+      </div>
+
       <div className="container mx-auto w-full max-w-5xl h-auto">
         <div className="grid grid-cols-1 gap-6">
           <div className="md:order-1 py-6 md:py-6 px-6">

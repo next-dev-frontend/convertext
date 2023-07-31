@@ -10,6 +10,8 @@ export default function termsCanditions() {
              all applicable laws and regulations and agree that you are responsible for
              compliance with all applicable local laws..."
       path="/terms-and-conditions"
+      publishedTime="2023-07-18T22:20:00Z"
+      modifiedTime="2023-07-18T22:20:00Z"
     >
       <section id='terms' className="bg-gray-200 mx-auto flex w-full max-w-full h-full">
         <div className="select-none container mx-auto pt-10 w-full max-w-5xl">

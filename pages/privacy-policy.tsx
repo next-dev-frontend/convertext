@@ -8,6 +8,8 @@ export default function privacyPolicy() {
       titleTemplate="%s | ConverText"
       description="Your privacy is important to us. It is Site ConverText policy. Respect your privacy regarding any information we may collect from you on the site"
       path="/privacy-policy"
+      publishedTime="2023-07-18T22:20:00Z"
+      modifiedTime="2023-07-18T22:20:00Z"
     >
       <section id='policy' className="bg-gray-200 mx-auto flex w-full max-w-full h-full">
         <div className="select-none container mx-auto pt-10 w-full max-w-5xl">
