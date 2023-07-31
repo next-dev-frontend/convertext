@@ -11,7 +11,7 @@ export default function Home() {
       description="ConvertText provides a user-friendly interface that simplifies the conversion process. With its intuitive design and easy-to-follow instructions, users can effortlessly transform their text and articles into HTML code with inline styles!"
       path="/"
       publishedTime="2023-07-18T22:20:00Z"
-      modifiedTime="2023-07-29T22:01:33Z"
+      modifiedTime="2023-07-30T22:21:53Z"
     >
 
       <main>
