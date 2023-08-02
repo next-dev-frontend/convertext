@@ -7,7 +7,7 @@ const Footer = () => {
 
       <div className="container mx-auto py-4 px-8 w-full max-w-5xl">
         <div className="flex flex-nowrap items-center justify-end">
-          <p className="font-bold text-sm text-blue-700 md:text-md">last update: July 30, 2023.</p>
+          <p className="font-bold text-sm text-blue-700 md:text-md">last update: August 01, 2023.</p>
         </div>
       </div>
 

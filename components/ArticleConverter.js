@@ -27,10 +27,27 @@ const ArticleConverter = () => {
         .replace(/"/g, '&quot;')
         .replace(/'/g, '&#039;')
         .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;');
+        .replace(/>/g, '&gt;')
+        .replace(/\(/g, '&#40;')
+        .replace(/\)/g, '&#41;')
+        .replace(/\[/g, '&#91;')
+        .replace(/\]/g, '&#93;')
+        .replace(/\{/g, '&#123;')
+        .replace(/\}/g, '&#125;');
     } else {
       return text;
     }
+  };
+
+  const handlePaste = (e) => {
+    e.preventDefault();
+    const pastedText = e.clipboardData.getData('text/plain');
+    const modifiedText = removeDoubleBlankLines(pastedText);
+    setArticleText(modifiedText);
+  };
+
+  const removeDoubleBlankLines = (text) => {
+    return text.replace(/(\r?\n){3,}/g, '\n\n');
   };
 
   const convertToHtml = () => {
@@ -206,7 +223,6 @@ const ArticleConverter = () => {
     setEncodeCharacters(true);
   };
 
-
   const isHtmlGenerated = htmlArticle !== '';
 
   return (
@@ -222,6 +238,7 @@ const ArticleConverter = () => {
         placeholder="Type or paste the text here"
         value={articleText}
         rows={5}
+        onPaste={handlePaste}
         onChange={(e) => setArticleText(e.target.value)}
       />
 

@@ -11,7 +11,7 @@ export default function Home() {
       description="ConvertText provides a user-friendly interface that simplifies the conversion process. With its intuitive design and easy-to-follow instructions, users can effortlessly transform their text and articles into HTML code with inline styles!"
       path="/"
       publishedTime="2023-07-18T22:20:00Z"
-      modifiedTime="2023-07-30T22:21:53Z"
+      modifiedTime="2023-08-01T22:05:53Z"
     >
 
       <main>
@@ -57,7 +57,9 @@ export default function Home() {
           </div>
 
           <div>
-            <h2 className="font-bold text-white bg-green-700 text-center p-2 text-sm md:text-lg lg:text-xl rounded">No rеgistration! - Unlimited text size! - Totally FREE forеvеr!</h2>
+            <h2 className="font-bold text-white bg-green-700 text-center p-2 text-sm md:text-lg lg:text-xl rounded">
+              No rеgistration! - Unlimited text size! - Totally FREE forеvеr!
+            </h2>
           </div>
 
         </article>
