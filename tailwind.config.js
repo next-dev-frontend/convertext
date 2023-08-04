@@ -13,14 +13,11 @@ module.exports = {
         colorGreen: '#25bf6e',
         colorGray: '#95a5a6',
       },
-
-
-
     }
   },
 
   plugins: [
     require('tailwind-scrollbar'),
-    require('tailwind-scrollbar-hide')
+    require('tailwind-scrollbar-hide'),
   ],
 };
