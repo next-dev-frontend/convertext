@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.custom-img {
+  background-image: none;
+}
+
+.custom-img.lazy-loaded {
+  background-image: url("/backgrounds/bg3-convertext.webp");
+}

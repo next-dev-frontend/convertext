@@ -1,17 +1,30 @@
-import Image from "next/legacy/image";
+import React, { useEffect } from 'react';
 
 function BgParallax() {
 
-  return (
-    <div className="flex items-center justify-center w-full max-w-full h-96 mb-12 relative bg-cover bg-fixed bg-center bg-no-repeat">
-      <Image
-        src="/backgrounds/bg3-convertext.webp"
-        alt="logo sobre seguros"
-        layout="fill"
-        objectFit="cover"
-        loading="lazy"
-      />
+  useEffect(() => {
+    // Create an observer to check when the image is in the viewport
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // If the image is in the viewport, add the lazy-loaded class to remove lazy loading behavior
+          entry.target.classList.add('lazy-loaded');
+          observer.unobserve(entry.target);
+        }
+      });
+    });
 
+    // Observe the custom-img element
+    const customImg = document.querySelector('.custom-img');
+    observer.observe(customImg);
+
+    // Clean up the observer when the component is unmounted
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div className="flex items-center justify-center h-96 mb-12 bg-fixed bg-center bg-cover custom-img">
+      <span class="sr-only">code html background</span>
       <div className="z-10 p-2 text-2xl text-white bg-white bg-opacity-30 rounded">
         <div className="text-center">
           <h3 className="font-bold border-4 border-color-white text-white bg-gradient-to-r from-green-900 to-green-500 text-center p-2 text-3xl md:text-4xl lg:text-5xl rounded">NO REGISTRATION!</h3>
@@ -23,8 +36,7 @@ function BgParallax() {
           <h3 className="font-bold border-4 border-color-white text-white bg-gradient-to-r from-green-900 to-green-500 text-center p-2 text-3xl md:text-4xl lg:text-5xl rounded">TOTALLY FREE FOREVER!!!</h3>
         </div>
       </div>
-    </div >
-
+    </div>
   );
 }
 
