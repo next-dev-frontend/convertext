@@ -36,9 +36,12 @@ export default function Home() {
             </div>
             <div>
               <h1 className="mt-4 font-bold text-3xl sm:text-4xl md:text-5xl text-colorBlue">
-                Convert Text To Html With Tailwind or Css
+                Convert Text to Html, Totally Free!
               </h1>
-              <p className="hidden md:flex mt-1 text-md sm:text-xl text-gray-700">
+              <h2 className="mt-4 italic text-2xl sm:text-3xl md:text-4xl text-green-700">
+                Add your css or tailwind styles
+              </h2>
+              <p className="hidden md:flex mt-1 pt-4 text-md sm:text-xl text-gray-600">
                 ConvеrtTеxt providеs a usеr-friеndly intеrfacе that simplifiеs thе convеrsion procеss.  With its intuitivе dеsign and еasy-to-follow instructions,  usеrs can еffortlеssly transform thеir tеxt and articlеs into HTML codе with inlinе stylеs!
               </p>
               <div className="mt-4 sm:flex sm:items-center sm:gap-2">
