@@ -15,7 +15,7 @@ export default function Home() {
     >
 
       <main>
-        <article className="select-none flex flex-col mx-auto w-full max-w-5xl p-8 space-y-4">
+        <article className="flex flex-col mx-auto w-full max-w-5xl p-8 space-y-4">
 
           <div className="flex items-start gap-4">
             <div className="pt-5 sm:grid sm:rounded-full">
