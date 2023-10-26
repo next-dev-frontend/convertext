@@ -226,7 +226,7 @@ const ArticleConverter = () => {
   const isHtmlGenerated = htmlArticle !== '';
 
   return (
-    <div className="select-none flex flex-col mx-auto w-full max-w-5xl p-6 pb-12 space-y-4">
+    <div className="flex flex-col mx-auto w-full max-w-5xl p-6 pb-12 space-y-4">
 
       <label className="text-left text-3xl md:text-4xl lg:text-5xl text-colorBlue font-bold">
         Input

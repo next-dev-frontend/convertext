@@ -18,7 +18,7 @@ const CookiePopup = ({ onClose }) => {
   }, [onClose]);
 
   return (
-    <div id='analytics' className='select-none fixed bottom-0 p-20 flex items-center w-full justify-center z-50'>
+    <div id='analytics' className='fixed bottom-0 p-20 flex items-center w-full justify-center z-50'>
       <div className='modal p-4 bg-green-700 border-4 rounded border-gray-200'>
         <p className='text-center font-bold text-white'>This site uses cookies</p>
         <br />

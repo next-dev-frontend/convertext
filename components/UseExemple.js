@@ -23,7 +23,7 @@ const Advantages = () => {
 
   return (
 
-    <section id="code" className="select-none container mx-auto pt-4 pb-4 w-full max-w-5xl">
+    <section id="code" className="container mx-auto pt-4 pb-4 w-full max-w-5xl">
 
       <div className="flex flex-nowrap items-center justify-left md:justify-center px-4 md:px-0 py-8">
         <div className="w-auto pl-5">
